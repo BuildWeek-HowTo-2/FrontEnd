@@ -8,10 +8,7 @@ const formSchema = yup.object().shape({
     .string()
     .email("Must be a valid email address.")
     .required("Must include email address."),
-  // terms: yup.boolean().oneOf([true], "please agree to terms of use"),
-  // positions: yup.string(),
-  // motivation: yup.string().required("must include why you'd like to join")
-});
+ });
 
 export default function Login() {
   // state for whether our button should be disabled or not.
