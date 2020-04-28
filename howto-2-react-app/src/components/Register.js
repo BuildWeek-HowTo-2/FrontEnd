@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
-import { postUserLogin, postInstructorLogin } from '../store/actions/login.action';
+import { postUserRegister, postInstructorRegister } from '../store/actions/register.action';
 import { useDispatch } from 'react-redux';
+
 // import styled from 'styled-components'
 
 const formSchema = yup.object().shape({
@@ -11,9 +12,10 @@ const formSchema = yup.object().shape({
   passwordConfirmation: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
  });
 
-export default function Login() {
+export default function Register() {
     let url = window.location.href;
     const dispatch = useDispatch()
+    
   // state for whether our button should be disabled or not.
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -31,7 +33,6 @@ export default function Login() {
 
   // new state to set post request to. 
   const [post, setPost] = useState([]);
-
   useEffect(() => {
     formSchema.isValid(formState).then(valid => {
       setButtonDisabled(!valid);
@@ -42,8 +43,11 @@ export default function Login() {
     e.preventDefault();
     console.log({formState})
     url.match(/instructor/gi) ? 
-    dispatch(postInstructorLogin(formState)) : dispatch(postUserLogin(formState))
-  }
+    dispatch(postInstructorRegister(formState)) : dispatch(postUserRegister(formState))
+    
+    
+//    dispatch(postLogin(formState))
+  };
 
   const validateChange = e => {
     // Reach will allow us to "reach" into the schema and test only one part.
@@ -78,7 +82,7 @@ export default function Login() {
 
   return (
     <form onSubmit={formSubmit}>
-      <h2>Login</h2>
+      <h2>Sign In</h2>
       <label htmlFor="username">
       User Name 
       <input
@@ -103,57 +107,10 @@ export default function Login() {
         ) : null}
       </label>
      
-      <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre>
-      <button disabled={buttonDisabled}>Submit</button>
+      {/* <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre> */}
+      <button disabled={buttonDisabled}>Register</button>
     
     </form>
     
   );
 }
-
-
-// styled components below...
-
-// const Form = styled.form`
-// width: 40%;
-// height: 500px;
-// margin: 1rem auto;
-// background: #E3C291;
-// font-family: Roboto;
-// `
-// const BigDiv = styled.div`
-// display: flex-flow;
-// align-items: center;
-// margin: 10% 10% 10% 10%;
-// justify-content: space-around;
-
-// `
-
-// const SignInH2 = styled.h2`
-// margin-top: 20%; 
-// text-align: center;
-// font-size: 2rem;
-// margin: 30% 30% 30% 10%;
-// `
-// const Label = styled.label`
-// text-align: center;
-// font-size: 1rem;
-// margin: 30% 30% 30% 10%;
-// margin-left: 10%;
-// `
-// const Button = styled.button `
-// margin: 30% 30% 30% 10%;
-// width: 200px;
-// height: 40px;
-// font-weight: bold;
-// font-size: 24px;
-// // line-height: 28px;
-// text-align: center;
-// color: #FFFFFF;
-// background: #45933E;
-// box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-// border-radius: 4px;
-// `
-
-
-
