@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
+// import styled from 'styled-components'
 
 const formSchema = yup.object().shape({
-  name: yup.string().required("Name is a required field."),
-  email: yup
-    .string()
-    .email("Must be a valid email address.")
-    .required("Must include email address."),
+  username: yup.string().required("User name is a required field"),
+  password: yup.string().required('Password is required'),
+  passwordConfirmation: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
  });
 
 export default function Login() {
@@ -16,14 +15,14 @@ export default function Login() {
 
   // managing state for our form inputs
   const [formState, setFormState] = useState({
-    name: "",
-    email: ""
+    username: "",
+    password: ""
   });
 
   // state for our errors
   const [errors, setErrors] = useState({
-    name: "",
-    email: ""
+    username: "",
+    password: ""
   });
 
   // new state to set post request to. 
@@ -44,8 +43,8 @@ export default function Login() {
 
         // reset form if successful
         setFormState({
-          name: "",
-          email: ""
+          username: "",
+          password: ""
         });
       })
       .catch(err => console.log(err.response));
@@ -84,31 +83,82 @@ export default function Login() {
 
   return (
     <form onSubmit={formSubmit}>
-      <label htmlFor="name">
-        Name
-        <input
+      <h2>Sign In</h2>
+      <label htmlFor="username">
+      User Name 
+      <input
           type="text"
-          name="name"
-          value={formState.name}
+          name="username"
+          value={formState.username}
           onChange={inputChange}
-        />
-        {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+        />      
+        {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
       </label>
-      <label htmlFor="email">
-        Email
-        <input
-          type="text"
-          name="email"
-          value={formState.email}
+      
+      <label htmlFor="password">
+      Password
+      <input 
+          type="password"
+          name="password"
+          value={formState.password}
           onChange={inputChange}
         />
-        {errors.email.length > 0 ? (
-          <p className="error">{errors.email}</p>
+        {errors.password.length > 0 ? (
+          <p className="error">{errors.password}</p>
         ) : null}
       </label>
      
-      <pre>{JSON.stringify(post, null, 2)}</pre>
+      <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre>
       <button disabled={buttonDisabled}>Submit</button>
+    
     </form>
+    
   );
 }
+
+
+// styled components below...
+
+// const Form = styled.form`
+// width: 40%;
+// height: 500px;
+// margin: 1rem auto;
+// background: #E3C291;
+// font-family: Roboto;
+// `
+// const BigDiv = styled.div`
+// display: flex-flow;
+// align-items: center;
+// margin: 10% 10% 10% 10%;
+// justify-content: space-around;
+
+// `
+
+// const SignInH2 = styled.h2`
+// margin-top: 20%; 
+// text-align: center;
+// font-size: 2rem;
+// margin: 30% 30% 30% 10%;
+// `
+// const Label = styled.label`
+// text-align: center;
+// font-size: 1rem;
+// margin: 30% 30% 30% 10%;
+// margin-left: 10%;
+// `
+// const Button = styled.button `
+// margin: 30% 30% 30% 10%;
+// width: 200px;
+// height: 40px;
+// font-weight: bold;
+// font-size: 24px;
+// // line-height: 28px;
+// text-align: center;
+// color: #FFFFFF;
+// background: #45933E;
+// box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+// border-radius: 4px;
+// `
+
+
+
