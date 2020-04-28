@@ -82,23 +82,19 @@ export default function Login() {
   };
 
   return (
-   
-    
     <form onSubmit={formSubmit}>
-    {/* <div className="BigDiv"> */}
       <h2>Sign In</h2>
       <label htmlFor="username">
       User Name 
-      
-        <input
+      <input
           type="text"
           name="username"
           value={formState.username}
           onChange={inputChange}
-        />
-      
+        />      
         {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
       </label>
+      
       <label htmlFor="password">
       Password
       <input 
@@ -114,7 +110,7 @@ export default function Login() {
      
       <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre>
       <button disabled={buttonDisabled}>Submit</button>
-      
+    
     </form>
     
   );
