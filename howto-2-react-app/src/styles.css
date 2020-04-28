@@ -16,7 +16,7 @@ form {
   margin: 0 auto;
   border: 2px solid black;
   padding: 5%;
-  background-image: linear-gradient(to right, #45933E, #E3C291);
+  background-image: linear-gradient(to right, #45933E, lightgrey);
 }
 
 h2 {
@@ -54,13 +54,13 @@ select {
 
 select:focus {
   outline: none;
-  border-color: #45933E;
+  border-color: #E3C291;
   /* background-image: linear-gradient(to right, #45933E, #E3C291); */
 }
 
 input:focus {
   outline: none;
-  border-color: #45933E;
+  border-color: #E3C291;
   /* background-image: linear-gradient(to right,#45933E, #E3C291); */
 }
 

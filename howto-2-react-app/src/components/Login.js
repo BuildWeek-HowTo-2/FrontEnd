@@ -83,7 +83,7 @@ export default function Login() {
 
   return (
     <form onSubmit={formSubmit}>
-      <h2>Sign In</h2>
+      <h2>Login</h2>
       <label htmlFor="username">
       User Name 
       <input
