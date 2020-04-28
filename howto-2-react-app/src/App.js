@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import "./styles.css";
 import OnboardOption from './components/OnboardOption';
 import Register from './components/Register';
+import NavBar from './components/NavBar';
 
 
 function App() {
   return (
+    
     <Router>
+      <NavBar/>
       <Route exact path='/login' component={OnboardOption} />
       <Route exact path='/register' component={OnboardOption}/>
       {/* <Route exact path='/' component={Login} /> */}
