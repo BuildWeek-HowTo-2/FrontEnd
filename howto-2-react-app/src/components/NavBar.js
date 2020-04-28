@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 
 function NavBar (props){
     return(
-        <div>  
-        <h1>How-To App</h1>
-        <div>
+        <div className="NavContainer">  
+        <h1 className="HowToTitle">How-To App</h1>
+        <div className="navLinks">     
         {/* if user is not logged in, there are 2 NavLinks, Register and Login. */}
         <NavLink to="/register">
         Register
