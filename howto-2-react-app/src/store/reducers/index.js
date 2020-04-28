@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
-import loginReducer from './loginReducer'
+import registerReducer from './registerReducer';
+import loginReducer from './loginReducer';
 
 const persistConfig = {
     key: 'root',
@@ -10,7 +10,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    login: loginReducer
+    login: loginReducer,
+    register: registerReducer
 })
 
 export default persistReducer(persistConfig,rootReducer)
