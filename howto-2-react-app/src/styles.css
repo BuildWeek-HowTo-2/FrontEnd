@@ -11,14 +11,17 @@ html {
 form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  background-color: lightgreen;
+  max-width: 300px;
   margin: 0 auto;
-  border: 2px solid red;
+  border: 2px solid black;
+  padding: 5%;
+  background-image: linear-gradient(to right, #45933E, #E3C291);
 }
 
 h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 label {
@@ -26,7 +29,7 @@ label {
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 input,
@@ -36,7 +39,7 @@ textarea {
   margin: 5px 0 0;
   display: block;
   width: 90%;
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid black;
   border-radius: 5px;
   padding: 10px;
   transition: all 0.3s;
@@ -52,13 +55,13 @@ select {
 select:focus {
   outline: none;
   border-color: #45933E;
-  background-image: linear-gradient(to right, #45933E, #E3C291);
+  /* background-image: linear-gradient(to right, #45933E, #E3C291); */
 }
 
 input:focus {
   outline: none;
   border-color: #45933E;
-  background-image: linear-gradient(to right,#45933E, #E3C291);
+  /* background-image: linear-gradient(to right,#45933E, #E3C291); */
 }
 
 input:placeholder {
@@ -70,7 +73,7 @@ button {
   width: 150px;
   display: inline-block;
   padding: 8px 11px;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-transform: uppercase;
   border: 1px solid black;
   border-radius: 5px;
@@ -98,7 +101,7 @@ button:disabled {
 }
 
 .error {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: red;
 }
 
