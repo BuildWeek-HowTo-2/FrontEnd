@@ -82,9 +82,9 @@ export default function Register() {
 
   return (
     <form onSubmit={formSubmit}>
-      <h2>Sign In</h2>
+      <h2>Login</h2>
       <label htmlFor="username">
-      User Name 
+      Name 
       <input
           type="text"
           name="username"
