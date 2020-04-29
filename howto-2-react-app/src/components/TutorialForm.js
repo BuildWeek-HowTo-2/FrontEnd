@@ -12,7 +12,7 @@ const TutorialForm = () => {
     // const step_number = useSelector(state => state.step_number)
     // const directions = useSelector(state => state.tutorial.directions)
     console.log({tutorialState})
-    // console.log({step_number})
+    
     const [ formState, setFormState] = useState({ instructions: ''} )
     // const [ step_number, setStepNumber ] = useState('')
     // const incrementStep = () => {
