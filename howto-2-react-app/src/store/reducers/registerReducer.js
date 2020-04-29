@@ -1,9 +1,8 @@
-import { REGISTER_POST_START, REGISTER_POST_SUCCESS, REGISTER_POST_FAILURE } from '../actions/login.action';
+import { REGISTER_POST_START, REGISTER_POST_SUCCESS, REGISTER_POST_FAILURE } from '../actions/register.action';
 
 const initialState = {
     username: '',
     password: '',
-    isInstructor: false,
     isLoading: false,
 }
 

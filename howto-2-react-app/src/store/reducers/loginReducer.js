@@ -3,7 +3,6 @@ import { LOGIN_POST_START, LOGIN_POST_SUCCESS, LOGIN_POST_FAILURE } from '../act
 const initialState = {
     username: '',
     password: '',
-    isInstructor: false,
     isLoading: false,
 }
 
