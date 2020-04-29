@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 const OnboardOption = () => {
     return (
-        <div>
-            <Link to='/user/register'>
+        <div className="OnboardOptionsDiv">
+            <Link className="OnboardOptionButtons" to='/user/register'>
             <button>Create User Account</button>
             </Link>
-            <Link to='/instructor/register'>
+            <Link className="OnboardOptionButtons" to='/instructor/register'>
             <button>Create Instructor Account</button>
             </Link>
         </div>
