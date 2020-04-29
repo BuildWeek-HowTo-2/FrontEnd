@@ -18,7 +18,7 @@ const CardTitle = styled.h1`
   max-width: 100%;
   max-height: 100%;
   background: white;
-  font-size: 1.3rem;
+  font-size: 2rem;
   padding: 1%;
   border: 1px 0px 1px 0;
   border-top: 3px solid black;
@@ -27,7 +27,7 @@ const CardTitle = styled.h1`
 `
 const CardP = styled.p`
   color: black;
-  font-size: .8rem;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
 `
