@@ -11,12 +11,13 @@ html {
 form {
   display: flex;
   flex-direction: column;
-  background-color: lightgreen;
-  max-width: 300px;
-  margin: 0 auto;
+  justify-content: center;
+  height: 60vh;
+  background-color: lightgrey;
+  width: 50%;
+  margin: 3% auto 0; 
   border: 2px solid black;
-  padding: 5%;
-  background-image: linear-gradient(to right, #45933E, lightgrey);
+  /* background-image: linear-gradient(to right, #45933E, lightgrey); */
 }
 h2 {
   text-align: center;
@@ -134,3 +135,15 @@ h1.HowToTitle {
 
 /* --------------------------------- */
 /* OnboardOption component styling section */
+.OnboardOptionsDiv {
+  /* border: 2px solid black; */
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  /* justify-items: center; */
+  align-items: center;
+}
+.OnboardOptionButtons button {
+  height: 200px;
+  width: 250px;
+}
