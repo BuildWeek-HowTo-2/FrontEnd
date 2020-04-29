@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTutorial } from '../store/actions/tutorial.action'
+import Tutorial from './Tutorial';
 
 
 
 const TutorialForm = () => {
     
     const dispatch = useDispatch()
-    // const tutorial = useSelector(state => state.tutorial)
-    const step_number = useSelector(state => state.step_number)
-    const directions = useSelector(state => state.tutorial.directions)
-    console.log({directions})
+    const tutorialState = useSelector(state => state.tutorial.tutorialState)
+    // const step_number = useSelector(state => state.step_number)
+    // const directions = useSelector(state => state.tutorial.directions)
+    console.log({tutorialState})
+    // console.log({step_number})
     const [ formState, setFormState] = useState({ instructions: ''} )
     // const [ step_number, setStepNumber ] = useState('')
     // const incrementStep = () => {
@@ -21,6 +23,11 @@ const TutorialForm = () => {
         e.preventDefault()
         setFormState({[e.target.name]:e.target.value})
     } 
+
+    const addStep =  e => {
+        console.log({tutorialState})
+        dispatch(createTutorial(formState.instructions))
+    }
     
     return (
     <div>
@@ -33,14 +40,11 @@ const TutorialForm = () => {
         value={formState.instructions}
         onChange={handleChange}
       />
-       <button onClick={() => dispatch(createTutorial(formState.instructions))}>Add Step</button>   
-    {/* {tutorialR.tutorial && tutorialR.tutorial.map( step => (
-        <div>
-        <p>{step.step_number}</p>
-        <p>{step.instructions}</p>
-        </div>
-    ))} */}
-        {tutorial.directions && <p>{tutorial.directions}</p>}
+       <button onClick={addStep}>Add Step</button>   
+    {tutorialState && tutorialState.map( step => (
+       <Tutorial step={step} />
+    ))}
+        {/* {directions && <p>{directions}</p>} */}
     </div>
     
     )

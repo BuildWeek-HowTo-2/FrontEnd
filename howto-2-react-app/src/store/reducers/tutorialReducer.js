@@ -7,19 +7,19 @@ import { TUTORIAL_GET_START, TUTORIAL_GET_SUCCESS, TUTORIAL_GET_FAILURE,
 const initialState = {
     isLoading: false,
     tutorials:[],
-    tutorial:[],
+    // tutorialState:[],
     step_number: 1,
     directions:'',
     // title:'',
     // summary:'',
     // likes:'',
-    // tutorial_directions: 
-    // [
-    //     {
-    //         step_number: '',
-    //         instructions: ''
-    //     },     
-    // ]
+    tutorialState: 
+    [
+        {
+            step_number: '',
+            instructions: ''
+        },     
+    ]
 }
 
 const tutorialReducer = (state = initialState, action) => {
@@ -92,8 +92,8 @@ const tutorialReducer = (state = initialState, action) => {
         case TUTORIAL_CREATE_FORM:
             return {
                 ...state,
-                directions: action.payload
-                // tutorial: [...state.tutorial, { instructions:action.payload, step_number:state.step_number}],
+                // directions: action.payload
+                tutorialState: [...state.tutorialState, { instructions:action.payload, step_number:state.step_number}],
                 // step_number: state.step_number + 1,
                 // instructions:action.payload,
                 // tutorial:[ {state.step_number,state.instructions}]  
