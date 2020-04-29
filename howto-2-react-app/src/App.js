@@ -5,6 +5,7 @@ import "./styles.css";
 import OnboardOption from './components/OnboardOption';
 import Register from './components/Register';
 import NavBar from './components/NavBar';
+import UserDashboard from './components/UserDashboard'
 // import UserDashboard
 // make a route "/user/dashboard"
 
@@ -21,6 +22,7 @@ function App() {
       <Route exact path='/instructor/register' component={Register} />
       <Route exact path='/user/login' component={Login} />
       <Route exact path='/instructor/login' component={Login} />
+      <Route exact path='/user/dashboard' component={UserDashboard} />
       {/* <Route exact path='/intructor' />
       <Route exact path='/user' />     */}
     </Router>
