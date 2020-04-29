@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTutorial, postTutorial, putTutorial, deleteTutorial } from '../store/actions/tutorial.action';
 import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom'
+import Tutorial from './Tutorial'
 
 
-const tutorialList = () => {
+const TutorialList = () => {
     const dispatch = useDispatch()
     
-    const tutorials = useSelector(state => state.tutorials)
-    const isLoading = useSelector(state => state.isLoading)
+    const tutorials = useSelector(state => state.tutorial.tutorials)
+    const isLoading = useSelector(state => state.tutorial.isLoading)
     
     useEffect(() => {
         dispatch(getTutorial())
@@ -23,10 +24,10 @@ const tutorialList = () => {
             {tutorials && tutorials.map((tutorial, index) => {
                 return <Tutorial tutorial={tutorial} />
             })}
-            <Link to>
+            <Link to='/tutorialForm'>
             <button>Create Tutorial</button>
             </Link>
         </div>
     )
 }
-export default tutorialList
+export default TutorialList

@@ -1,24 +1,26 @@
 import { TUTORIAL_GET_START, TUTORIAL_GET_SUCCESS, TUTORIAL_GET_FAILURE, 
         TUTORIAL_POST_START, TUTORIAL_POST_SUCCESS, TUTORIAL_POST_FAILURE,
         TUTORIAL_PUT_START,TUTORIAL_PUT_SUCCESS,TUTORIAL_PUT_FAILURE,
-        TUTORIAL_DELETE_START,TUTORIAL_DELETE_SUCCESS,TUTORIAL_DELETE_FAILURE, TUTORIAL_CREATE_FORM
+        TUTORIAL_DELETE_START,TUTORIAL_DELETE_SUCCESS,TUTORIAL_DELETE_FAILURE, 
+        TUTORIAL_CREATE_DIRECTIONS
 } from '../actions/tutorial.action';
 
 const initialState = {
     isLoading: false,
     tutorials:[],
-    // tutorialState:[],
+    tutorialState:{},
+    // tutorial_directions:[],
     step_number: 1,
     directions:'',
     // title:'',
     // summary:'',
     // likes:'',
-    tutorialState: 
+    tutorial_directions: 
     [
-        {
-            step_number: '',
-            instructions: ''
-        },     
+        // {
+        //     step_number: '',
+        //     instructions: ''
+        // },     
     ]
 }
 
@@ -49,6 +51,7 @@ const tutorialReducer = (state = initialState, action) => {
         case TUTORIAL_POST_SUCCESS:
             return {
                 ...state,
+                tutorials:action.payload,
                 isLoading: false
             }
         case TUTORIAL_POST_FAILURE:
@@ -89,12 +92,12 @@ const tutorialReducer = (state = initialState, action) => {
                 error:action.payload,
                 isLoading:false
             }
-        case TUTORIAL_CREATE_FORM:
+        case TUTORIAL_CREATE_DIRECTIONS:
             return {
                 ...state,
                 // directions: action.payload
-                tutorialState: [...state.tutorialState, { instructions:action.payload, step_number:state.step_number}],
-                // step_number: state.step_number + 1,
+                tutorial_directions: [...state.tutorial_directions, { instructions:action.payload, step_number:state.step_number}],
+                step_number: state.step_number + 1,
                 // instructions:action.payload,
                 // tutorial:[ {state.step_number,state.instructions}]  
             }

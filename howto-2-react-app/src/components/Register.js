@@ -3,6 +3,7 @@ import axios from "axios";
 import * as yup from "yup";
 import { postUserRegister, postInstructorRegister } from '../store/actions/register.action';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 // import styled from 'styled-components'
 
@@ -13,6 +14,7 @@ const formSchema = yup.object().shape({
  });
 
 export default function Register() {
+    let history = useHistory()
     let url = window.location.href;
     const dispatch = useDispatch()
     
@@ -43,10 +45,9 @@ export default function Register() {
     e.preventDefault();
     console.log({formState})
     url.match(/instructor/gi) ? 
-    dispatch(postInstructorRegister(formState)) : dispatch(postUserRegister(formState))
-    
-    
-//    dispatch(postLogin(formState))
+    dispatch(postInstructorRegister(formState)) : 
+    dispatch(postUserRegister(formState))
+    url.match(/instructor/gi) ? history.push('/instructor/login') : history.push('/user/login')
   };
 
   const validateChange = e => {
@@ -78,11 +79,16 @@ export default function Register() {
 
     validateChange(e);
     setFormState(newFormData);
-  };
+  }
+
+  const pushToLogin = () => {
+    url.match(/instructor/gi) ? history.push('/instructor/login') : history.push('/user/login')
+  }
+  
 
   return (
-    <form onSubmit={formSubmit}>
-      <h2>Login</h2>
+    <form onSubmit={formSubmit} >
+      <h2>Register</h2>
       <label htmlFor="username">
       Name 
       <input
@@ -108,8 +114,11 @@ export default function Register() {
       </label>
      
       {/* <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre> */}
-      <button disabled={buttonDisabled}>Register</button>
-    
+      <button 
+      disabled={buttonDisabled} >
+        Register
+      </button>
+      {/* onClick={() => url.match(/instructor/gi) ? history.push('/instructor/login') : history.push('/user/login')} */}
     </form>
     
   );

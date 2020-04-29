@@ -1,4 +1,5 @@
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { useHistory } from 'react-router-dom';
 
 export const TUTORIAL_GET_START = 'TUTORIAL_GET_START'
 export const TUTORIAL_GET_SUCCESS = 'TUTORIAL_GET_SUCCESS'
@@ -16,22 +17,21 @@ export const TUTORIAL_DELETE_START = 'TUTORIAL_DELETE_START'
 export const TUTORIAL_DELETE_SUCCESS = 'TUTORIAL_DELETE_SUCCESS'
 export const TUTORIAL_DELETE_FAILURE = 'TUTORIAL_DELETE_FAILURE'
 
-export const TUTORIAL_CREATE_FORM = 'TUTORIAL_CREATE_FORM'
-
+export const TUTORIAL_CREATE_DIRECTIONS = 'TUTORIAL_CREATE_DIRECTIONS'
 
 export const getTutorial = value => (dispatch) => {
     dispatch({ type: TUTORIAL_GET_START });
     axiosWithAuth()
-    .get(`/tutorials/${value}`)
+    .get(`/tutorials`)
     .then((res) => {
+        console.log({res})
         dispatch({
             type: TUTORIAL_GET_SUCCESS,
-            payload:res.data.payload
+            payload:res.data
         })
         //JSON.stringify(res.data.payload)
-        console.log({res})
-        //props.history.push()
-        window.location.href= '/tutorialList'
+        
+        // window.location.href= '/tutorialList'
     })
     .catch((err) => {
         dispatch({
@@ -42,18 +42,18 @@ export const getTutorial = value => (dispatch) => {
 }
 
 export const postTutorial = (value) => (dispatch) => {
-    dispatch({ type: TUTORIAL_POST_START, payload: value });
+    dispatch({ type: TUTORIAL_POST_START });
     axiosWithAuth()
-    .post(`/tutorials/${value}`)
+    .post(`/tutorials`, value)
     .then((res) => {
+        console.log({res})
         dispatch({
             type: TUTORIAL_POST_SUCCESS,
-            payload:res.data.payload
+            payload:res.data
         })
         //JSON.stringify(res.data.payload)
-        console.log({res})
+        
         //props.history.push()
-        window.location.href= '/tutorialList'
     })
     .catch((err) => {
         dispatch({
@@ -107,7 +107,7 @@ export const deleteTutorial = (value) => (dispatch) => {
     })  
 }
 
-export const createTutorial = (value) => (dispatch) => {
+export const createTutorialDirections = (value) => (dispatch) => {
     console.log({value})
-    dispatch( { type: TUTORIAL_CREATE_FORM, payload: value})
+    dispatch( { type: TUTORIAL_CREATE_DIRECTIONS, payload: value})
 }
