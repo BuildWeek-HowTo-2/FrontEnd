@@ -10,7 +10,14 @@ const ListContainer = styled.div`
   justify-content: space-between;
   flex-flow: row wrap;
 `
-
+const SearchForm = styled.form`
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: 1% 35%;
+  font-size: 2rem;
+  border: none;
+`
 
 // _________________Working code below....___________________
 
@@ -27,27 +34,48 @@ useEffect(() => {
     })
       .then(response => {
       
-        console.log("success, tutorial list coming back", response.data);
-        setTutorials(response.data);
+        console.log(response.data);
+        const tutorials = response.data.filter(tutorial => tutorial.title.toLowerCase().includes(query.toLowerCase())
+        );
+        setTutorials(tutorials);
       })
       .catch(error => {
         console.log("failure, the tutorial list not returned", error);
       });
-  }, []);
+  }, [query]);
+
+  const handleInputChange = event => {
+    setQuery(event.target.value);
+  };
 
   return (
+    
     <ListContainer className="tutorial">
-      {tutorials.map(tutorial => {
-        return (
-          <UserTutorialCard
-          key={tutorial.id}
-          title={tutorial.title}
-          summary={tutorial.summary}
-          likes={tutorial.likes}
-          instructor_id={tutorial.instructor_id}
-          />      
-        )
-      })}
+    
+      <SearchForm className="search">
+        <input
+          type="text"
+          onChange={handleInputChange}
+          value={query}
+          name="title"
+          tabIndex="25"
+          placeholder="search by title"
+          autoComplete="off"
+        />
+      </SearchForm>
+      
+        {tutorials.map(tutorial => {
+          return (
+            <UserTutorialCard
+            key={tutorial.id}
+            title={tutorial.title}
+            summary={tutorial.summary}
+            likes={tutorial.likes}
+            instructor_id={tutorial.instructor_id}
+            />      
+          )
+        })
+      }
     </ListContainer>
   );
 }

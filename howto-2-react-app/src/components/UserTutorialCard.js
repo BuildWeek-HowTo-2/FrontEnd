@@ -33,8 +33,6 @@ const CardP = styled.p`
   font-weight: bold;
 `
 
-
-
 const UserTutorialCard = props => {
   // const { id, title, summary, likes, instructor_id}
   return (
@@ -45,15 +43,6 @@ const UserTutorialCard = props => {
       <CardP>Likes: { props.likes }</CardP>
       <CardP>Instructor ID: { props.instructor_id }</CardP>
     </Card>
-
-
-    
-  // <div className="tutorial-list " key={props.id}>
-  //   <h3>{props.title}</h3>
-  //   <p>Summary: {props.summary}</p>
-  //   <p>Likes: {props.likes}</p>
-  //   <p>Instructor ID: {props.instructor_id}</p>      
-  // </div>
 
   );
 };
