@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components"
 
 const Card = styled.div`
-  width: 18%;
+  width: 25%;
   margin: 2%;
   background: lightgrey;
   border-radius: 5%;
-  opacity: 85%;
-  border: 3px solid black;
+  background-color: lightgrey;
+  opacity: 80%;
+  // border: 1px solid black;
   border-style: outset;
 `
 // const Image = styled.img`
@@ -18,16 +19,16 @@ const CardTitle = styled.h1`
   max-width: 100%;
   max-height: 100%;
   background: white;
-  font-size: 2rem;
-  padding: 1%;
+  font-size: 16px;
+  padding: 4%;
   border: 1px 0px 1px 0;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
   text-align: center;
 `
 const CardP = styled.p`
   color: black;
-  font-size: 1.5rem;
+  font-size: 14px;
   text-align: center;
   font-weight: bold;
 `
