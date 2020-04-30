@@ -1,0 +1,48 @@
+.main {
+    img {
+        height: 500px;
+        margin-top: 2%;
+
+        @media @tablet {
+            height: 250px;
+        }
+    }
+
+    .topText,
+    .bottomText {
+        width: 40%;
+
+        @media @phone{
+            width: 90%;
+            margin: 4% 0;
+        }
+    }
+
+    .topSection,
+    .bottomSection {
+        .flexin(row, space-between, center);
+
+        @media @phone {
+            flex-direction: column;
+        }
+
+        h3 {
+            width: 100%;
+        }
+
+        p {
+            font-size: 1.8rem;
+            margin-top: 4%;
+
+        }
+
+    }
+
+    .bottomSection {
+        @media @phone {
+            flex-direction: column-reverse;
+
+        }
+    }
+
+}

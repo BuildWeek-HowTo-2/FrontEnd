@@ -1,0 +1,21 @@
+.flexin(@direction, @justify, @align) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.button(@color, @font-size, @hover) {
+    background-color: @color;
+    color: white;
+    font-size: @font-size;
+    font-weight: bolder;
+    padding: 1% 4%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    &:hover{
+        background-color: @hover;
+        
+    }
+
+}

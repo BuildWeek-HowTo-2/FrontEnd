@@ -1,0 +1,54 @@
+.hero{
+    width: 100vw;
+    height: 100vh;
+
+    @media @tablet{
+        height: 80vh;
+    }
+
+    @media @phone{
+        height: 50vh;
+    }
+
+    .flexin(column, space-around, center);
+    .itemOne{
+        align-self: flex-start;
+        padding-top: 1%;
+        background: radial-gradient(44.82% 88.39% at 49.87% 52.65%, rgba(255, 255, 255, 0.2) 50.36%, rgba(126, 124, 124, 0) 100%);
+    }
+    .itemTwo{
+        align-self: flex-end;
+        padding-bottom: 1%;
+        background: radial-gradient(44.82% 88.39% at 49.87% 52.65%, rgba(255, 255, 255, 0.2) 50.36%, rgba(126, 124, 124, 0) 100%);
+    }
+
+    button{
+        .button(@primaryColor, 2.4rem, @primaryHover);
+    }
+
+    div{
+        width: 30%;
+    }
+
+    h2{
+        color: #234B20;
+        font-weight: bolder;
+        font-size: 4rem;
+        text-align: center;
+
+        @media @tablet{
+            font-size: 3rem;
+        }
+
+        @media @phone{
+            font-size: 2rem;
+        }
+    }
+
+    background-image: url(/images/jack-carter-tMGMINwFOtI-unsplash.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}

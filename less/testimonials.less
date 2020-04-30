@@ -1,0 +1,60 @@
+.testimonialsSection {
+    height: 10%;
+
+    h3{
+        @media @phone{
+            width: 50%;
+            margin-top: 2%;
+        }
+    }
+
+    .testimonials {
+        .flexin(row, space-between, center);
+
+        @media @phone {
+            flex-direction: column;
+        }
+
+        div.laurie {
+            @media @phone {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .testimonial {
+            .flexin(row, space-evenly, stretch);
+
+            height: 100%;
+
+            img {
+                max-width: 90px;
+                max-height: 90px;
+                object-fit: cover;
+                border-radius: 50%;
+
+                @media @phone {
+                    margin: 2%;
+                    max-width: 80px;
+                    max-height: 80px;
+                }
+            }
+
+            p {
+                font-size: 1.6rem;
+                font-style: italic;
+                width: 80%;
+                align-self: center;
+                margin-left: 1%;
+
+                @media @tablet {
+                    font-size: 1.4rem;
+                }
+
+                @media @phone {
+                    margin: 3% 2%;
+                }
+
+            }
+        }
+    }
+}

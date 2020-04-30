@@ -1,0 +1,75 @@
+.about {
+    
+
+    .flexin(row, space-between, stretch);
+
+    @media @phone{
+        .flexin(column, center, stretch);
+    }
+
+    padding-bottom: 1%;
+
+    .aboutCTA {
+        padding-right: 10%;
+
+        font-weight: bold;
+        font-size: 1.8rem;
+
+        @media @tablet{
+            padding-right: 5%;
+        }
+
+        @media @phone{
+           margin: 2% 0;
+           h4{
+               margin: 2% 0;
+           }
+
+        }
+
+        p {
+            padding: 1% 0;
+        }
+
+
+        button.create {
+            .button(@primaryColor, 1.4rem, @primaryHover);
+
+        }
+
+        button.signIn {
+            .button(@secondaryColor, 1.4rem, @secondaryHover);
+            padding-left: 10%;
+            padding-right: 10%;
+
+        }
+
+
+        .flexin(column, space-around, center);
+    }
+
+    .aboutText {
+        width: 60%;
+
+        @media @phone{
+            width: 100%;
+        }
+
+        p {
+            font-size: 1.6rem;
+            padding: 1% 0;
+
+            @media @tablet{
+                font-size: 1.4rem;
+            }
+        }
+
+        button {
+            .button(@primaryColor, 1.4rem, @primaryHover);
+
+            @media @phone{
+                margin: 2% 0;
+            }
+        }
+    }
+}

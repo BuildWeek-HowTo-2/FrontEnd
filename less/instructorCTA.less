@@ -1,0 +1,39 @@
+.instructorCTA {
+    padding: 5%;
+
+    font-weight: bold;
+    font-size: 1.8rem;
+    h4 {
+        padding: 2% 0;
+    }
+
+    @media @tablet{
+        padding-right: 5%;
+    }
+
+    @media @phone{
+       margin: 2% 0;
+       h4{
+           margin: 2% 0;
+       }
+
+    }
+
+  
+
+
+    button.create {
+        .button(@primaryColor, 1.4rem, @primaryHover);
+
+    }
+
+    button.signIn {
+        .button(@secondaryColor, 1.4rem, @secondaryHover);
+        padding-left: 10%;
+        padding-right: 10%;
+
+    }
+
+
+    .flexin(column, space-around, center);
+}
