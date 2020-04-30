@@ -3,6 +3,8 @@
 html {
   font-size: 62.5%;
   font-family: Roboto;
+  background-size: cover;
+  background-image: url(./assets/colorwall.jpg)
 }
 .App {
   font-family: Roboto;
@@ -108,12 +110,13 @@ button:disabled {
 .NavContainer {
   border: 2px solid black;
   background-color: #45933E;
+  opacity: 75%;
 
 }
 h1.HowToTitle {
   color:  #E3C291;
-  text-align: center;
-  font-size: 40px;
+  text-align: left;
+  font-size: 30px;
   text-align: center;
   font-family: 'Yellowtail', cursive;
   margin: 0% auto; 
@@ -146,4 +149,10 @@ h1.HowToTitle {
 .OnboardOptionButtons button {
   height: 200px;
   width: 250px;
+}
+
+/* --------------------------------- */
+/* UserDashboard component styling section */
+img {
+  max-height: 20vh;
 }
