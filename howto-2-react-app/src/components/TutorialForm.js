@@ -42,7 +42,7 @@ const TutorialForm = () => {
         e.preventDefault()
         // console.log({tutorialState})
         dispatch(postTutorial(formState))
-        history.push('/tutorial/dashboard')
+        history.push('/instructor/dashboard')
     }
     
     return (
