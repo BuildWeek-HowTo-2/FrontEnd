@@ -1,5 +1,6 @@
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
 export const TUTORIAL_GET_START = 'TUTORIAL_GET_START'
 export const TUTORIAL_GET_SUCCESS = 'TUTORIAL_GET_SUCCESS'
@@ -42,10 +43,12 @@ export const getTutorial = value => (dispatch) => {
 }
 
 export const postTutorial = (value) => (dispatch) => {
+    console.log({value})
     dispatch({ type: TUTORIAL_POST_START });
-    axiosWithAuth()
-    .post(`/tutorials`, value)
-    .then((res) => {
+    // axiosWithAuth()
+    axios
+    .post(`https://how2s.herokuapp.com/api/tutorials`, value)
+    .then( res => {
         console.log({res})
         dispatch({
             type: TUTORIAL_POST_SUCCESS,
