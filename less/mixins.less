@@ -1,0 +1,41 @@
+// Mixins in here
+.btn-class {
+    box-sizing: border-box;
+    align-items: center;
+    padding: 20px 70px;
+    border-radius: 10px;
+    background-color: @primary;
+    color: white;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: width 2s,
+        height 2s,
+        background-color 2s,
+        transform 2s;
+
+    &:hover {
+        // The compiled color returned is #006667 
+        background-color: darken(@primary, 25%)
+    }
+
+    @media @phone {
+        width: 100%;
+        padding-left: 35%;
+    }
+}
+
+.custom-layout(@justify, @align) {
+    display: flex;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.flexin(@direction, @justify, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+// usage
+//.custom-layout(flex-end, center);
