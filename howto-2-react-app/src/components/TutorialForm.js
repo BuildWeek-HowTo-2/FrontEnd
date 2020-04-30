@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createTutorial, postTutorial } from '../store/actions/tutorial.action'
+import { useDispatch } from 'react-redux';
+import {  postTutorial } from '../store/actions/tutorial.action'
 import Tutorial from './Tutorial';
 import { useHistory } from 'react-router-dom'
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import { postUserRegister, postInstructorRegister } from '../store/actions/register.action';
@@ -34,12 +34,12 @@ export default function Register() {
   });
 
   // new state to set post request to. 
-  const [post, setPost] = useState([]);
-  useEffect(() => {
-    formSchema.isValid(formState).then(valid => {
-      setButtonDisabled(!valid);
-    });
-  }, [formState]);
+  // const [post, setPost] = useState([]);
+  // useEffect(() => {
+  //   formSchema.isValid(formState).then(valid => {
+  //     setButtonDisabled(!valid);
+  //   });
+  // }, [formState]);
 
   const formSubmit = e => {
     e.preventDefault();
@@ -81,10 +81,7 @@ export default function Register() {
     setFormState(newFormData);
   }
 
-  const pushToLogin = () => {
-    url.match(/instructor/gi) ? history.push('/instructor/login') : history.push('/user/login')
-  }
-  
+ 
 
   return (
     <form onSubmit={formSubmit} >

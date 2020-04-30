@@ -32,7 +32,7 @@ export default function Login() {
   });
 
   // new state to set post request to. 
-  const [post, setPost] = useState([]);
+  // const [post, setPost] = useState([]);
 
   useEffect(() => {
     formSchema.isValid(formState).then(valid => {
@@ -40,9 +40,6 @@ export default function Login() {
     });
   }, [formState]);
 
-  const routeToDashboard= () => {
-    
-  }
   const formSubmit = e => {
     e.preventDefault();
     console.log({formState})
@@ -111,7 +108,7 @@ export default function Login() {
         ) : null}
       </label>
      
-      <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre>
+      {/* <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre> */}
       <button disabled={buttonDisabled}>Submit</button>
     
     </form>

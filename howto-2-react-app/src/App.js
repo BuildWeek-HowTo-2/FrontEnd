@@ -19,7 +19,7 @@ import PrivateRoute from './components/ProtectedRoute';
 
 function App() {
   return (
-    
+  
     <Router>
       <NavBar/>
       <Route exact path='/' component={OnboardOption}/>
@@ -34,6 +34,7 @@ function App() {
       <Route exact path='/tutorialDirections' component={TutorialDirectionsForm} />
       {/* <Route exact path='/intructor' />
       <Route exact path='/user' />     */}
+      
     </Router>
   );
 }

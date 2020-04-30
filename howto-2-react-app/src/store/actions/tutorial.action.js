@@ -1,5 +1,4 @@
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 export const TUTORIAL_GET_START = 'TUTORIAL_GET_START'

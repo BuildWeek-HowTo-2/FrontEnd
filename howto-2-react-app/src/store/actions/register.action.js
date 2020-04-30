@@ -1,6 +1,5 @@
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
 
 export const REGISTER_POST_START = 'REGISTER_POST_START';
 export const REGISTER_POST_SUCCESS = 'REGISTER_POST_SUCCESS';
