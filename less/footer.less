@@ -1,0 +1,36 @@
+footer{
+    background-color: @secondaryColor;
+    height: 40px;
+
+   .flexin(row, space-between, center);
+
+    p{
+        margin-left: 2%;
+        font-size: 1.6rem;
+
+        @media @phone{
+            font-size: 1.2rem;
+        }
+    }
+    .footerNav{
+        width: 40%;
+
+        @media @phone{
+            width: 50%;
+        }
+        .flexin(row, space-around, center);
+        a{
+            color: white;
+            font-size: 1.6rem;
+            text-decoration: none;
+            padding-left: 2%;
+
+            @media @phone{
+                font-size: 1.2rem;
+            }
+        }
+
+    }
+}
+
+

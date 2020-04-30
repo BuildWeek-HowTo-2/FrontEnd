@@ -1,0 +1,46 @@
+.topHowTos {
+    background-color: #E3C291;
+    div {
+
+        .flexin(row, space-between, stretch);
+
+        @media @phone{
+            .flexin(column, stretch, center);
+        }
+
+        .featured {
+            .flexin(column, center, center);
+
+            .starRating {
+                i {
+                    height: 25px;
+                    width: 25px;
+                    color: #F7E32C;
+
+                }
+
+                @media @phone{
+                    flex-direction: row;
+                }
+            }
+
+            h5 {
+                font-size: 2.4rem;
+
+                @media @phone{
+                   font-size: 1.6rem;
+                   margin: 2% 0;
+                }
+            }
+
+            img {
+                width: 96px;
+                height: 77px;
+                margin: 2% 0;
+
+            }
+        }
+
+
+    }
+}
