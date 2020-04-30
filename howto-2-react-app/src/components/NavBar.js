@@ -8,10 +8,10 @@ function NavBar (props){
         <h1 className="HowToTitle">How-To App</h1>
         <div className="navLinks">     
         {/* if user is not logged in, there are 2 NavLinks, Register and Login. */}
-        <NavLink to="/register">
+        <NavLink to="/user/register">
         Register
         </NavLink>
-        <NavLink to="/login">
+        <NavLink to="/">
         Login
         </NavLink>
         {/* if user is logged in, there are 2 NavLinks, Dashboard and Logout */}
@@ -23,7 +23,7 @@ function NavBar (props){
         <NavLink to="/instructor/dashboard">
         Instructor Dashboard
         </NavLink>
-        <NavLink to="/login">
+        <NavLink to="/">
         Logout
         </NavLink>
         </div>

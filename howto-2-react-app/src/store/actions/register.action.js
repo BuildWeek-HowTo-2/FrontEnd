@@ -6,21 +6,23 @@ export const REGISTER_POST_START = 'REGISTER_POST_START';
 export const REGISTER_POST_SUCCESS = 'REGISTER_POST_SUCCESS';
 export const REGISTER_POST_FAILURE = 'REGISTER_POST_FAILURE';
 
+
+
+
 export const postUserRegister = (value) => (dispatch) => {
     dispatch({ type: REGISTER_POST_START, payload: value });
-    axios
-    .post('https://how2s.herokuapp.com/api/user/register', value)
+    axiosWithAuth()
+    .post('/user/register', value)
     .then((res) => {
         dispatch({
             type: REGISTER_POST_SUCCESS,
-            payload:res.data.payload
         })
         console.log({res})
         console.log('res.data.payload',res.data.payload)
+        
         //JSON.stringify(res.data.payload)
-        localStorage.setItem('token',res.data.payload)
+        // localStorage.setItem('token',res.data.token)
         //props.history.push()
-        window.location.href= '/user/login'
     })
     .catch((err) => {
         dispatch({
@@ -44,7 +46,7 @@ export const postInstructorRegister = (value) => (dispatch) => {
         
         
         //JSON.stringify(res.data.payload)
-        localStorage.setItem('token',res.data.token)
+        // localStorage.setItem('token',res.data.token)
         //props.history.push()
         // window.location.href= '/instructor/login'
     })

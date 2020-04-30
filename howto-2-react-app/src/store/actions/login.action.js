@@ -15,7 +15,7 @@ export const postUserLogin = (value) => (dispatch) => {
         })
         //JSON.stringify(res.data.payload)
         console.log({res})
-        localStorage.setItem('token',res.data.payload)
+        localStorage.setItem('token',res.data.token)
         //props.history.push()
     })
     .catch((err) => {

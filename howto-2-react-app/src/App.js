@@ -11,6 +11,7 @@ import TutorialForm from './components/TutorialForm'
 
 import UserDashboard from './components/UserDashboard'
 import tutorialList from './components/TutorialList';
+import PrivateRoute from './components/ProtectedRoute';
 // import UserDashboard
 // make a route "/user/dashboard"
 
@@ -21,16 +22,16 @@ function App() {
     
     <Router>
       <NavBar/>
-      <Route exact path='/login' component={OnboardOption} />
-      <Route exact path='/register' component={OnboardOption}/>
+      <Route exact path='/' component={OnboardOption}/>
       {/* <Route exact path='/' component={Login} /> */}
       <Route exact path='/user/register' component={Register} />
       <Route exact path='/instructor/register' component={Register} />
       <Route exact path='/user/login' component={Login} />
       <Route exact path='/instructor/login' component={Login} />
       <Route exact path='/tutorialForm' component={TutorialForm} />
-      <Route exact path='/tutorialList' component={tutorialList} />
-      <Route exact path='/user/dashboard' component={UserDashboard} />
+      <PrivateRoute exact path='/instructor/dashboard' component={tutorialList} />
+      <PrivateRoute exact path='/user/dashboard' component={UserDashboard} />
+      <Route exact path='/tutorialDirections' component={TutorialDirectionsForm} />
       {/* <Route exact path='/intructor' />
       <Route exact path='/user' />     */}
     </Router>

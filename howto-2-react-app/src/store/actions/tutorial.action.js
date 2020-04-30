@@ -20,6 +20,9 @@ export const TUTORIAL_DELETE_FAILURE = 'TUTORIAL_DELETE_FAILURE'
 
 export const TUTORIAL_CREATE_DIRECTIONS = 'TUTORIAL_CREATE_DIRECTIONS'
 
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://cors-anywhere.herokuapp.com/http://how2s.herokuapp.com/api/tutorials'; // site that doesn't send Access-Control-*
+
 export const getTutorial = value => (dispatch) => {
     dispatch({ type: TUTORIAL_GET_START });
     axiosWithAuth()
@@ -45,17 +48,15 @@ export const getTutorial = value => (dispatch) => {
 export const postTutorial = (value) => (dispatch) => {
     console.log({value})
     dispatch({ type: TUTORIAL_POST_START });
-    // axiosWithAuth()
-    axios
-    .post(`https://how2s.herokuapp.com/api/tutorials`, value)
+    axiosWithAuth()
+    .post('/tutorials')
     .then( res => {
         console.log({res})
         dispatch({
             type: TUTORIAL_POST_SUCCESS,
             payload:res.data
         })
-        //JSON.stringify(res.data.payload)
-        
+    //     //JSON.stringify(res.data.payload)
         //props.history.push()
     })
     .catch((err) => {
