@@ -18,7 +18,6 @@ const TutorialForm = () => {
         { 
             title: '',
             summary:'',
-            instructor_id:21
         } 
     )
     // const [ step_number, setStepNumber ] = useState('')
@@ -43,7 +42,7 @@ const TutorialForm = () => {
         e.preventDefault()
         // console.log({tutorialState})
         dispatch(postTutorial(formState))
-        history.push('/tutorialList')
+        history.push('/tutorial/dashboard')
     }
     
     return (

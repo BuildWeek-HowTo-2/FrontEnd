@@ -6,8 +6,7 @@ export const REGISTER_POST_START = 'REGISTER_POST_START';
 export const REGISTER_POST_SUCCESS = 'REGISTER_POST_SUCCESS';
 export const REGISTER_POST_FAILURE = 'REGISTER_POST_FAILURE';
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = 'https://api.liveconnect.in/backend/web/erpsync/get-all-orders?data=dbCode=UAT04M%7Cidx=100%7CuserId=6214%7Cres_format=1'; // site that doesn't send Access-Control-*
+
 
 
 export const postUserRegister = (value) => (dispatch) => {
@@ -20,6 +19,7 @@ export const postUserRegister = (value) => (dispatch) => {
         })
         console.log({res})
         console.log('res.data.payload',res.data.payload)
+        
         //JSON.stringify(res.data.payload)
         // localStorage.setItem('token',res.data.token)
         //props.history.push()

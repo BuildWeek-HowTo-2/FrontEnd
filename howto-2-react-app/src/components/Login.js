@@ -40,13 +40,17 @@ export default function Login() {
     });
   }, [formState]);
 
+  const routeToDashboard= () => {
+    
+  }
   const formSubmit = e => {
     e.preventDefault();
     console.log({formState})
     url.match(/instructor/gi) ? 
     dispatch(postInstructorLogin(formState)) : 
     dispatch(postUserLogin(formState))
-    url.match(/instructor/gi) ? history.push('/tutorialList') : history.push('/user/dashboard')
+    console.log(localStorage.getItem("token"))
+    url.match(/instructor/gi) ? history.push('/instructor/dashboard') : history.push('/user/dashboard')
   }
 
   const validateChange = e => {
