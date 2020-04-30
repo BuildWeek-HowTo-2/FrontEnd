@@ -3,7 +3,6 @@ import { REGISTER_POST_START, REGISTER_POST_SUCCESS, REGISTER_POST_FAILURE } fro
 const initialState = {
     username: '',
     password: '',
-    isInstructor: false,
     isLoading: false,
 }
 

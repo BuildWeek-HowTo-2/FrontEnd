@@ -3,6 +3,7 @@ import axios from "axios";
 import * as yup from "yup";
 import { postUserLogin, postInstructorLogin } from '../store/actions/login.action';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 // import styled from 'styled-components'
 
 const formSchema = yup.object().shape({
@@ -12,6 +13,7 @@ const formSchema = yup.object().shape({
  });
 
 export default function Login() {
+    let history = useHistory()
     let url = window.location.href;
     const dispatch = useDispatch()
   // state for whether our button should be disabled or not.
@@ -42,7 +44,9 @@ export default function Login() {
     e.preventDefault();
     console.log({formState})
     url.match(/instructor/gi) ? 
-    dispatch(postInstructorLogin(formState)) : dispatch(postUserLogin(formState))
+    dispatch(postInstructorLogin(formState)) : 
+    dispatch(postUserLogin(formState))
+    url.match(/instructor/gi) ? history.push('/tutorialList') : history.push('/user/dashboard')
   }
 
   const validateChange = e => {
