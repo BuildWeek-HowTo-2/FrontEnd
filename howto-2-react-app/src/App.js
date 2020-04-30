@@ -31,6 +31,7 @@ function App() {
       <Route exact path='/tutorialForm' component={TutorialForm} />
       <Route exact path='/tutorialList' component={tutorialList} />
       <Route exact path='/user/dashboard' component={UserDashboard} />
+      <Route exact path='/tutorialDirections' component={TutorialDirectionsForm} />
       {/* <Route exact path='/intructor' />
       <Route exact path='/user' />     */}
     </Router>

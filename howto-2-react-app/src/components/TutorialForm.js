@@ -17,7 +17,8 @@ const TutorialForm = () => {
     const [ formState, setFormState] = useState(
         { 
             title: '',
-            summary:''
+            summary:'',
+            instructor_id:21
         } 
     )
     // const [ step_number, setStepNumber ] = useState('')
