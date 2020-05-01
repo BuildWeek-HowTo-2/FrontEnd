@@ -45,6 +45,8 @@ const TutorialForm = () => {
         dispatch(postTutorial(formState))
         // history.push('/instructor/dashboard')
     }
+
+
     
     return (
         <div>

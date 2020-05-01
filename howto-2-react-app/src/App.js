@@ -12,6 +12,7 @@ import TutorialForm from './components/TutorialForm'
 import UserDashboard from './components/UserDashboard'
 import tutorialList from './components/TutorialList';
 import PrivateRoute from './components/ProtectedRoute';
+import EditTutorialForm from './components/EditTutorialForm';
 // import UserDashboard
 // make a route "/user/dashboard"
 
@@ -32,6 +33,7 @@ function App() {
       <PrivateRoute exact path='/instructor/dashboard' component={tutorialList} />
       <PrivateRoute exact path='/user/dashboard' component={UserDashboard} />
       <Route exact path='/tutorialDirections' component={TutorialDirectionsForm} />
+      <Route exact path='/tutorial/:id' component={EditTutorialForm} />
       {/* <Route exact path='/intructor' />
       <Route exact path='/user' />     */}
       

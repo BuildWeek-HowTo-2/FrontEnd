@@ -8,7 +8,7 @@ const P = styled.p`
   color: black;
   width:120px;
   padding:5px;
-  font-size: 10px;
+  font-size: 40px;
   font-weight: bold;
 `
 

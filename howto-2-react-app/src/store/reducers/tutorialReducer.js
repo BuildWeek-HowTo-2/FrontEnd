@@ -1,4 +1,5 @@
-import { TUTORIAL_GET_START, TUTORIAL_GET_SUCCESS, TUTORIAL_GET_FAILURE, 
+import { TUTORIALS_GET_START, TUTORIALS_GET_SUCCESS, TUTORIALS_GET_FAILURE,
+        TUTORIAL_GET_START, TUTORIAL_GET_SUCCESS, TUTORIAL_GET_FAILURE, 
         TUTORIAL_POST_START, TUTORIAL_POST_SUCCESS, TUTORIAL_POST_FAILURE,
         TUTORIAL_PUT_START,TUTORIAL_PUT_SUCCESS,TUTORIAL_PUT_FAILURE,
         TUTORIAL_DELETE_START,TUTORIAL_DELETE_SUCCESS,TUTORIAL_DELETE_FAILURE, 
@@ -26,6 +27,23 @@ const initialState = {
 
 const tutorialReducer = (state = initialState, action) => {
     switch (action.type) {
+        case TUTORIALS_GET_START:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case TUTORIALS_GET_SUCCESS:
+            return {
+                ...state,
+                tutorials:action.payload,
+                isLoading: false
+            }
+        case TUTORIALS_GET_FAILURE:
+            return {
+                ...state,
+                error:action.payload,
+                isLoading:false
+            }
         case TUTORIAL_GET_START:
             return {
                 ...state,
@@ -34,7 +52,7 @@ const tutorialReducer = (state = initialState, action) => {
         case TUTORIAL_GET_SUCCESS:
             return {
                 ...state,
-                tutorials:action.payload,
+                tutorialState:action.payload,
                 isLoading: false
             }
         case TUTORIAL_GET_FAILURE:
@@ -68,6 +86,13 @@ const tutorialReducer = (state = initialState, action) => {
         case TUTORIAL_PUT_SUCCESS:
             return {
                 ...state,
+                tutorials: state.tutorials.map(tutorial =>{
+                    if (tutorial.id === action.payload.id){
+                        tutorial = action.payload
+                        return tutorial
+                    } 
+                    else { return tutorial}
+                }),
                 isLoading: false
             }
         case TUTORIAL_PUT_FAILURE:
@@ -84,6 +109,7 @@ const tutorialReducer = (state = initialState, action) => {
         case TUTORIAL_DELETE_SUCCESS:
             return {
                 ...state,
+                tutorials: state.tutorials.filter( tutorial => action.payload !== tutorial.id),
                 isLoading: false
             }
         case TUTORIAL_DELETE_FAILURE:
