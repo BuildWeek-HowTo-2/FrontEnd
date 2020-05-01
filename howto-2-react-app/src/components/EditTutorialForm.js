@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {  postTutorial } from '../store/actions/tutorial.action'
-import { useHistory } from 'react-router-dom'
+import {  putTutorial, getTutorial } from '../store/actions/tutorial.action'
+import { useHistory, useParams } from 'react-router-dom'
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 
-const TutorialForm = () => {
-    let history = useHistory()
+const EditTutorialForm = () => {
     const dispatch = useDispatch()
+    const { id } = useParams();
+    const { push } = useHistory();
     // const tutorialState = useSelector(state => state.tutorial.tutorialState)
     // const step_number = useSelector(state => state.step_number)
     // const directions = useSelector(state => state.tutorial.directions)
     const instructorId = useSelector(state => state.login.user.subject)
+    const tutorialInfo = useSelector(state => state.tutorial.tutorialState)
+
+    useEffect(() => {
+           dispatch(getTutorial(id)) 
+    },[id])
     
     const [ formState, setFormState] = useState(
         { 
@@ -37,16 +44,17 @@ const TutorialForm = () => {
     //     setFormState( { instructions: ''} )
     // }
 
-    const publishTutorial = e => {
+    const editTutorial = e => {
         e.preventDefault()
         console.log({formState})
         // console.log({tutorialState})
         console.log({instructorId})
-        dispatch(postTutorial(formState))
-        // history.push('/instructor/dashboard')
+        dispatch(putTutorial(id,formState))
+        push('/instructor/dashboard')
+        
     }
 
-
+    
     
     return (
         <div>
@@ -56,6 +64,7 @@ const TutorialForm = () => {
             id='title'
             name='title'
             value={formState.title}
+            placeholder={tutorialInfo.title}
             onChange={handleChange}
             />
             <label htmlFor='summary'>Summary</label>
@@ -63,6 +72,7 @@ const TutorialForm = () => {
             id='summary'
             name='summary'
             value={formState.summary}
+            placeholder={tutorialInfo.summary}
             onChange={handleChange}
             />
             {/* <button onClick={addStep}>Add Step</button>   
@@ -70,10 +80,10 @@ const TutorialForm = () => {
             <Tutorial step={step} />
             ))} */}
                 {/* {directions && <p>{directions}</p>} */}
-            <button onClick={publishTutorial}>Add</button>
+            <button onClick={editTutorial}>Save</button>
             </form>
         </div>
     )
 }
 
-export default TutorialForm
+export default EditTutorialForm

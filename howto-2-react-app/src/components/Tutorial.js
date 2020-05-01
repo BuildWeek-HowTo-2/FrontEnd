@@ -1,13 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
+const D = styled.div`
+display:flex;
+
+`
+const P = styled.p`
+  color: black;
+  width:120px;
+  padding:5px;
+  font-size: 40px;
+  font-weight: bold;
+`
+
 
 const Tutorial = ({tutorial}) => {
     return (
-        <div>
+        <D>
         {/* <h3>{step.step_number}</h3> <h3>{step.instructions}</h3> */}
-        {tutorial.title}
-        {tutorial.summary}
-        {tutorial.likes}
-        </div>
+        <P>{tutorial.title}</P>
+        <P>{tutorial.summary}</P>
+        <P>{tutorial.instructor_id}</P>
+        </D>
     )
 
 }

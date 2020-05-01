@@ -34,7 +34,7 @@ export default function Register() {
   });
 
   // new state to set post request to. 
-  const [post, setPost] = useState([]);
+  // const [post, setPost] = useState([]);
   useEffect(() => {
     formSchema.isValid(formState).then(valid => {
       setButtonDisabled(!valid);
@@ -81,10 +81,7 @@ export default function Register() {
     setFormState(newFormData);
   }
 
-  const pushToLogin = () => {
-    url.match(/instructor/gi) ? history.push('/instructor/login') : history.push('/user/login')
-  }
-  
+ 
 
   return (
     <form onSubmit={formSubmit} >

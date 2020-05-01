@@ -32,7 +32,7 @@ export default function Login() {
   });
 
   // new state to set post request to. 
-  const [post, setPost] = useState([]);
+  // const [post, setPost] = useState([]);
 
   useEffect(() => {
     formSchema.isValid(formState).then(valid => {
@@ -40,16 +40,12 @@ export default function Login() {
     });
   }, [formState]);
 
-  const routeToDashboard= () => {
-    
-  }
   const formSubmit = e => {
     e.preventDefault();
     console.log({formState})
     url.match(/instructor/gi) ? 
     dispatch(postInstructorLogin(formState)) : 
     dispatch(postUserLogin(formState))
-    console.log(localStorage.getItem("token"))
     url.match(/instructor/gi) ? history.push('/instructor/dashboard') : history.push('/user/dashboard')
   }
 
@@ -111,7 +107,7 @@ export default function Login() {
         ) : null}
       </label>
      
-      <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre>
+      {/* <pre>{post.length > 0 && JSON.stringify(post, null, 2)}</pre> */}
       <button disabled={buttonDisabled}>Submit</button>
     
     </form>

@@ -1,8 +1,7 @@
 import { LOGIN_POST_START, LOGIN_POST_SUCCESS, LOGIN_POST_FAILURE } from '../actions/login.action';
 
 const initialState = {
-    username: '',
-    password: '',
+    user: {},
     isLoading: false,
 }
 
@@ -16,7 +15,7 @@ const loginReducer = (state = initialState, action) => {
         case LOGIN_POST_SUCCESS:
             return {
                 ...state,
-                username: action.payload,
+                user: action.payload,
                 isLoading: false
             }
         case LOGIN_POST_FAILURE:

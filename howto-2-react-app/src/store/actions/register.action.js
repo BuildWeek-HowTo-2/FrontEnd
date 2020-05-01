@@ -1,6 +1,5 @@
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
 
 export const REGISTER_POST_START = 'REGISTER_POST_START';
 export const REGISTER_POST_SUCCESS = 'REGISTER_POST_SUCCESS';
@@ -12,7 +11,7 @@ export const REGISTER_POST_FAILURE = 'REGISTER_POST_FAILURE';
 export const postUserRegister = (value) => (dispatch) => {
     dispatch({ type: REGISTER_POST_START, payload: value });
     axiosWithAuth()
-    .post('/user/register', value)
+    .post('/users/register', value)
     .then((res) => {
         dispatch({
             type: REGISTER_POST_SUCCESS,
