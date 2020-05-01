@@ -296,8 +296,8 @@ footer a {
 }
 @media (max-width: 500px) {
   .home {
-    width: 90%;
-    align-content: center;
+    align-items: center;
+    margin: 0 auto;
   }
 }
 .home .titleBar {
