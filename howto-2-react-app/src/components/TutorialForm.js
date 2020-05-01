@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {  postTutorial } from '../store/actions/tutorial.action'
-import Tutorial from './Tutorial';
 import { useHistory } from 'react-router-dom'
 
 
@@ -12,12 +11,13 @@ const TutorialForm = () => {
     // const tutorialState = useSelector(state => state.tutorial.tutorialState)
     // const step_number = useSelector(state => state.step_number)
     // const directions = useSelector(state => state.tutorial.directions)
-    
+    const instructorId = useSelector(state => state.login.user.subject)
     
     const [ formState, setFormState] = useState(
         { 
             title: '',
             summary:'',
+            instructor_id: instructorId
         } 
     )
     // const [ step_number, setStepNumber ] = useState('')
@@ -27,7 +27,6 @@ const TutorialForm = () => {
 
     const handleChange = e => {
         e.preventDefault()
-        console.log({formState})
         setFormState({...formState,[e.target.name]:e.target.value})
     } 
 
@@ -40,9 +39,11 @@ const TutorialForm = () => {
 
     const publishTutorial = e => {
         e.preventDefault()
+        console.log({formState})
         // console.log({tutorialState})
+        console.log({instructorId})
         dispatch(postTutorial(formState))
-        history.push('/instructor/dashboard')
+        // history.push('/instructor/dashboard')
     }
     
     return (

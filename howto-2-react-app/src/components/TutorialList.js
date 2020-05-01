@@ -8,7 +8,7 @@ import Tutorial from './Tutorial'
 
 const TutorialList = () => {
     const dispatch = useDispatch()
-    
+    const id = useSelector(state => state.login.user.subject)
     const tutorials = useSelector(state => state.tutorial.tutorials)
     const isLoading = useSelector(state => state.tutorial.isLoading)
     
@@ -16,13 +16,15 @@ const TutorialList = () => {
         dispatch(getTutorial())
     },[dispatch])
 
-
+    
     return (
         <div>
             {isLoading && <Loader type='RevolvingDot' color='#45933E' height={100} width={100} /> }
-            {tutorials && tutorials.map((tutorial, index) => {
+            {/* {tutorials && tutorials.map((tutorial, index) => {
                 return <Tutorial tutorial={tutorial} />
-            })}
+            })} */}
+           {tutorials && tutorials.map( tutorial => {
+               if(tutorial.instructor_id === id) return <Tutorial tutorial={tutorial} />})}
             <Link to='/tutorialForm'>
             <button>Create Tutorial</button>
             </Link>

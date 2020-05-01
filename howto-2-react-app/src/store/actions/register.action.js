@@ -11,7 +11,7 @@ export const REGISTER_POST_FAILURE = 'REGISTER_POST_FAILURE';
 export const postUserRegister = (value) => (dispatch) => {
     dispatch({ type: REGISTER_POST_START, payload: value });
     axiosWithAuth()
-    .post('/user/register', value)
+    .post('/users/register', value)
     .then((res) => {
         dispatch({
             type: REGISTER_POST_SUCCESS,

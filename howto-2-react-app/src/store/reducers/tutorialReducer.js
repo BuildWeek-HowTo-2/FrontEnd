@@ -51,7 +51,7 @@ const tutorialReducer = (state = initialState, action) => {
         case TUTORIAL_POST_SUCCESS:
             return {
                 ...state,
-                tutorials:action.payload,
+                tutorials:[...state.tutorials,action.payload],
                 isLoading: false
             }
         case TUTORIAL_POST_FAILURE:

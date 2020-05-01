@@ -46,7 +46,6 @@ export default function Login() {
     url.match(/instructor/gi) ? 
     dispatch(postInstructorLogin(formState)) : 
     dispatch(postUserLogin(formState))
-    console.log(localStorage.getItem("token"))
     url.match(/instructor/gi) ? history.push('/instructor/dashboard') : history.push('/user/dashboard')
   }
 

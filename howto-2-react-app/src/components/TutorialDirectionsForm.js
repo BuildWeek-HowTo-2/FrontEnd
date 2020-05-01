@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTutorialDirections, postTutorial } from '../store/actions/tutorial.action'
-import Tutorial from './Tutorial';
+import Directions from './Directions';
 
 
 
@@ -38,9 +38,7 @@ const TutorialDirectionsForm = () => {
     }
     
     return (
-    <div>
-            
-
+    <div>        
       <label htmlFor='instructions'></label>
       <textarea
         id='instructions'
@@ -50,10 +48,10 @@ const TutorialDirectionsForm = () => {
       />
        <button onClick={addStep}>Add Step</button>   
     {tutorial_directions && tutorial_directions.map( step => (
-       <Tutorial step={step} />
+       <Directions step={step} />
     ))}
         {/* {directions && <p>{directions}</p>} */}
-    <button onClick={publishTutorial}>Publish Tutorial</button>
+    <button onClick={createTutorialDirections}>Publish Tutorial</button>
     </div>
     )
 }

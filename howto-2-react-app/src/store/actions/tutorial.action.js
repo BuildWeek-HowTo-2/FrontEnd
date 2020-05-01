@@ -46,9 +46,11 @@ export const getTutorial = value => (dispatch) => {
 
 export const postTutorial = (value) => (dispatch) => {
     console.log({value})
-    dispatch({ type: TUTORIAL_POST_START });
+    dispatch({ type: TUTORIAL_POST_START,
+    payload: value 
+    });
     axiosWithAuth()
-    .post('/tutorials')
+    .post('/tutorials',value)
     .then( res => {
         console.log({res})
         dispatch({
